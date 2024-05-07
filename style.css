@@ -1,15 +1,57 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(hintergrundbild.jpg);
+    background-size: cover;
+
+
+
 }
 
-img{
-    width: 100%;
+
+#suche {
+    width: 50%; 
+    padding: 12px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
 }
+
 #anzeige {
-    display: grid;
-    grid-template-columns:repeat(4, 1fr);
-    grid-gap: 12px;
+    display: flex;
+    width: 80%;
+    overflow-x: auto; /* Ermöglicht das horizontale Scrollen für das Karussell */
+    scroll-behavior: smooth; /* Weiches Scrollen */
+    gap: 20px; /* Abstand zwischen den Karten */
+}
 
-} 
+div.song {
+    flex: 0 0 auto; /* Verhindert das Strecken der Karten */
+    width: 200px; /* Breite jeder Song-Karte */
+    border-radius: 8px;
+    background-color: bisque;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-right: 20px; /* Abstand zwischen den Karten */
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+
+h2 {
+    padding: 12px 16px;
+    margin-top: 0;
+    color: #333;
+}
