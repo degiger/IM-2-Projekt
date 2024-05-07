@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+}
+#anzeige {
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-gap: 12px;
+
+} 
