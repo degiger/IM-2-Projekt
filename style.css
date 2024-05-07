@@ -12,10 +12,8 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url(hintergrundbild.jpg);
-    background-size: cover;
-
-
-
+    background-size: cover
+    ;
 }
 
 
@@ -39,7 +37,8 @@ body {
 
 div.song {
     flex: 0 0 auto; /* Verhindert das Strecken der Karten */
-    width: 200px; /* Breite jeder Song-Karte */
+    width: 300px; /* Breite jeder Song-Karte */
+    height: 300px;
     border-radius: 8px;
     background-color: bisque;
     overflow: hidden;
