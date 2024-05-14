@@ -1,3 +1,4 @@
+
 let suche = document.querySelector('#suche');
 let anzeige = document.querySelector('#anzeige');
 let karussellButton = document.querySelector('#karussell');
@@ -18,7 +19,7 @@ function datenDarstellen(songs) {
     songs.forEach(song => {
         let div = document.createElement('div');
         div.className = 'song';
-        div.onclick = () => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(song.title + ' ' + song.artist.name)}`); /*Chat GPT hat gehulfen*/
+        div.onclick = () => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(song.title + ' ' + song.artist.name)}`);
         let songText = document.createElement('h2');
         songText.innerText = song.title;
         let artistText = document.createElement('p');
@@ -30,10 +31,10 @@ function datenDarstellen(songs) {
 }
 
 function zufaelligeSongsAnzeigen() {
-    let zufaelligeSongs = gesamteSongListe.sort(() => 0.5 - Math.random()).slice(0, 4);
+    let anzahlSongs = window.innerWidth > 768 ? 4 : 2; // Anzahl der Songs basierend auf der Bildschirmbreite
+    let zufaelligeSongs = gesamteSongListe.sort(() => 0.5 - Math.random()).slice(0, anzahlSongs);
     datenDarstellen(zufaelligeSongs);
-} /* Diese Funktion wurde von Chat GTP kopiert*/
-
+}
 
 async function init() {
     let songDaten = await holeDaten('https://il.srgssr.ch/integrationlayer/2.0/srf/songList/radio/byChannel/69e8ac16-4327-4af4-b873-fd5cd6e895a7?from=2024-04-08T00%3A00%3A00%2B02%3A00&to=2024-04-08T23%3A59%3A00%2B02%3A00&pageSize=500');
@@ -49,7 +50,7 @@ suche.addEventListener('input', function() {
         return (song.title.toLowerCase().includes(ergebnis) || song.artist.name.toLowerCase().includes(ergebnis));
     }) : gesamteSongListe;
     datenDarstellen(gefilterteSongs);
-}); /*Diese Funktion wurde von Chat GTP kopiert*/
+});
 
 karussellButton.addEventListener('click', zufaelligeSongsAnzeigen);
 

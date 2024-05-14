@@ -3,17 +3,17 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Kanit", sans-serif; 
+}
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /*alle Elemente werden zentriert mit align-items */
+    align-items: center;
     background-image: url('hintergrundbild.jpg');
     background-size: cover;
-    height: 100vh; /* vh steht für Viewport Height mit 100% funktioniert es nicht */
+    height: 100vh;
 }
-
 
 #navbar {
     width: 100%;
@@ -34,7 +34,6 @@ body {
     border: 2px solid #ccc;
     border-radius: 8px;
     text-align: center;
-    
 }
 
 #anzeige {
@@ -43,20 +42,20 @@ body {
     justify-content: center;
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 20px; /* Abstand zwischen den Songboxen */
-    margin-top: 20px; /* Abstand zur Navigationsleiste */
+    gap: 20px;
+    margin-top: 20px;
 }
 
 div.song {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Inhalt wird zentriert */
-    flex: 0 0 auto; /* Flexbox wird nicht vergrößert */
+    justify-content: center;
+    flex: 0 0 auto;
     width: 250px;
     height: 300px;
     border-radius: 8px;
-    background-color: rgba(255, 228, 196, 0.2); /* Hintergrundfarbe mit Transparenz (letzte Nummer ist wie deckend die Farbe ist */
+    background-color: rgba(255, 228, 196, 0.2);
     overflow: hidden;
     padding: 20px;
     text-align: center;
@@ -64,14 +63,23 @@ div.song {
 
 h2 {
     font-size: 24px;
-    font-weight: 700; /* Fett für Songtitel */
+    font-weight: 700;
     color: #333;
     margin-bottom: 10px;
 }
 
 p {
     font-size: 18px;
-    font-weight: 300; /* Leicht für Künstler:innennamen */
+    font-weight: 300;
     color: #666;
 }
+
+/* Responsive Design Anpassungen */
+@media (max-width: 768px) {
+    #suche, #karussell {
+        width: 80%;
+    }
+    div.song {
+        width: 200px; /* Kleinere Songboxen auf kleinen Bildschirmen */
+    }
 }
