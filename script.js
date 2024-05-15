@@ -10,7 +10,7 @@ async function holeDaten(url) {
         return await response.json();
     } catch (e) {
         console.error(e);
-        anzeige.innerHTML = '<p>Keine Songs gefunden – try again!</p>';
+        anzeige.innerHTML = '<p>Keine Songs/ Künstler:in gefunden – try again!</p>';
     }
 }
 
