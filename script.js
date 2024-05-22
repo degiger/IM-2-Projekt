@@ -10,16 +10,18 @@ async function holeDaten(url) {
         return await response.json();
     } catch (e) {
         console.error(e);
-        anzeige.innerHTML = '<p>Keine Songs/ Künstler:in gefunden – try again!</p>';
+        anzeige.innerHTML = '<p>Sorry, keine Songs/ Künstler:in gefunden – try again!</p>';
     }
 }
+
+
 
 function datenDarstellen(songs) {
     anzeige.innerHTML = '';
     songs.forEach(song => {
         let div = document.createElement('div');
         div.className = 'song';
-        div.onclick = () => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(song.title + ' ' + song.artist.name)}`);
+        div.onclick = () => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(song.title + ' ' + song.artist.name)}`); /* Diese Funktion haben wir mit Hilfe von ChatGPT erstellt */
         let songText = document.createElement('h2');
         songText.innerText = song.title;
         let artistText = document.createElement('p');
