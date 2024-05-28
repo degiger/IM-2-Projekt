@@ -15,6 +15,7 @@ async function holeDaten(url) {
 }
 
 
+function datenDarstellen(songs) {
     anzeige.innerHTML = '';
     songs.forEach(song => {
         let div = document.createElement('div');
@@ -28,6 +29,7 @@ async function holeDaten(url) {
         div.appendChild(artistText);
         anzeige.appendChild(div);
     });
+}
 
 function zufaelligeSongsAnzeigen() {
     let anzahlSongs = window.innerWidth > 768 ? 4 : 2; // Anzahl der Songs basierend auf der Bildschirmbreite
