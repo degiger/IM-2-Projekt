@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 180vh; /* Etwas kürzere Seite */
-    padding-top: 100px; /* Platz für die Navbar schaffen */
+    padding-top: 50px; /* Platz für die Navbar schaffen */
 }
 
 #navbar {
@@ -27,6 +27,13 @@ body {
     text-align: center;
     padding: 10px 0;
     font-size: 50px;
+}
+
+#beschreibung {
+    text-align: center;
+    font-size: 20px;
+    color: #f7f1f1;
+    margin: 20px 0; /* Abstand über und unter dem Text */
 }
 
 #suche, #karussell {
@@ -124,11 +131,11 @@ footer {
     text-align: center;
     padding: 20px 0;
     background: transparent; /* Kein Hintergrund */
-    margin-top: 50px; /* Mehr Abstand zum restlichen Inhalt */
+    margin-top: 150px; /* Mehr Abstand zum restlichen Inhalt */
 }
 
 footer h2 {
-    font-size: 36px; /* Größerer Titel "La Familia" */
+    font-size: 40px; /* Größerer Titel "La Familia" */
     font-weight: 700;
     color: #333;
     margin-bottom: 20px;
@@ -145,21 +152,21 @@ footer h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 200px; /* Größere Bilder */
+    width: 220px; /* Größere Bilder */
     padding: 10px;
     text-align: center;
     background: transparent; /* Hintergrundfarbe entfernen */
 }
 
 .team-member img {
-    width: 150px; /* Größere Bilder */
-    height: 150px; /* Größere Bilder */
+    width: 170px; /* Größere Bilder */
+    height: 170px; /* Größere Bilder */
     border-radius: 50%;
     margin-bottom: 10px;
 }
 
 .team-member p {
-    font-size: 24px; /* Größere Namen */
+    font-size: 26px; /* Größere Namen */
     font-weight: 500;
     color: #333;
 }
