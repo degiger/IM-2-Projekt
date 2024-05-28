@@ -17,7 +17,7 @@ body {
 
 #navbar {
     width: 100%;
-    color: #333;
+    color: #f7f1f1;
     text-align: center;
     padding: 10px 0;
     font-size: 50px;
@@ -36,14 +36,35 @@ body {
     text-align: center;
 }
 
+#karussell {
+    width: 50%; 
+    padding: 12px 20px;
+    font-size: 18px;
+    margin: 20px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f8f8f8; /* Ursprüngliche Hintergrundfarbe */
+    cursor: pointer; /* Ändert den Mauszeiger zu einem Händchen, wenn der Benutzer über den Button fährt */
+    transition: background-color 0.3s, transform 0.3s ease; /* Sanfter Übergang für Farbe und Transformation */
+}
+
+#karussell:hover {
+    background-color: #e0e0e0; /* Dunklere Hintergrundfarbe beim Hover */
+    transform: scale(1.05); /* Vergrößert den Button leicht beim Hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Fügt einen Schatten für mehr Tiefe hinzu */
+}
+
+
 #anzeige {
     display: flex;
     width: 80%;
-    justify-content: center;
+    justify-content: center; /* Zentriert die Boxen innerhalb des Containers */
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 20px; /* Vergrößert den Abstand zwischen den Boxen */
+    padding: 20px; /* Fügt Abstand rund um die inneren Elemente hinzu */
+    margin-top: 20px; /* Abstand zur Navigationsleiste, eventuell erhöhen wenn notwendig */
 }
 
 div.song {
@@ -52,14 +73,25 @@ div.song {
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    width: 250px;
-    height: 300px;
+    width: 250px; /* Breite der Box */
+    height: 300px; /* Höhe der Box */
+    margin: 10px; /* Fügt Außenabstand hinzu, um das Eingequetschte zu vermeiden */
     border-radius: 8px;
     background-color: rgba(255, 228, 196, 0.2);
     overflow: hidden;
     padding: 20px;
     text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Weicher Übergang für den Schatteneffekt */
+    cursor: pointer;
 }
+
+div.song:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Stärkerer Schatten beim Hover */
+    transform: scale(1.05); /* Vergrößert die Box leicht beim Hover */
+}
+
+
+    
 
 h2 {
     font-size: 24px;
@@ -83,3 +115,53 @@ p {
         width: 200px; /* Kleinere Songboxen auf kleinen Bildschirmen */
     }
 }
+
+
+@media (max-width: 768px) { /* Für kleinere Tablets und große Telefone */
+    div.song {
+        flex: 0 0 50%; /* Nimmt weiterhin 50% der Breite für zwei Boxen nebeneinander ein */
+    }
+}
+
+@media (max-width: 375px) { /* Speziell für iPhone 11 und ähnliche Geräte */
+    div.song {
+        padding: 10px; /* Reduziertes Padding auf sehr kleinen Bildschirmen */
+    }
+}
+
+#anzeige {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll; /* Ermöglicht horizontales Scrollen */
+    scroll-snap-type: x mandatory; /* Ermöglicht das Snap-Verhalten beim Scrollen */
+    -webkit-overflow-scrolling: touch; /* Verbessert das Scroll-Verhalten auf iOS-Geräten */
+    width: 100%; /* Breite des Containers */
+    gap: 0; /* Kein Abstand zwischen den Boxen */
+    padding: 0; /* Kein Padding um den Container */
+}
+
+div.song {
+    flex: 0 0 50%; /* Jede Box nimmt 50% der sichtbaren Breite ein */
+    height: 300px;
+    border-radius: 0; /* Keine abgerundeten Ecken, um einen nahtlosen Übergang zu gewährleisten */
+    background-color: rgba(255, 228, 196, 0.2);
+    overflow: hidden;
+    text-align: center;
+    scroll-snap-align: start; /* Stellt sicher, dass jede Box am Anfang des Containers einrastet */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 376px) { /* Stile für Geräte, die breiter als das iPhone XR sind */
+    div.song {
+        flex: 0 0 auto;
+        width: 250px; /* Breite auf größeren Bildschirmen */
+        margin: 10px; /* Abstand um die Boxen */
+        border-radius: 8px; /* Abgerundete Ecken wieder aktivieren */
+    }
+
+    #anzeige {
+        gap: 20px; /* Abstand zwischen den Boxen */
+        padding: 20px; /* Padding um den Container */
+    }
+}
+
