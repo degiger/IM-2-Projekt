@@ -5,14 +5,20 @@
     font-family: "Kanit", sans-serif; 
 }
 
+html {
+    height: 100%;
+    background-image: url('hintergrundbild.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-image: url('hintergrundbild.jpg');
-    background-size: cover;
-    height: 100vh;
+    min-height: 180vh; /* Etwas kürzere Seite */
+    padding-top: 100px; /* Platz für die Navbar schaffen */
 }
 
 #navbar {
@@ -21,13 +27,10 @@ body {
     text-align: center;
     padding: 10px 0;
     font-size: 50px;
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
 #suche, #karussell {
-    width: 50%; 
+    width: 50%;
     padding: 12px 20px;
     font-size: 18px;
     margin: 20px 0;
@@ -37,15 +40,8 @@ body {
 }
 
 #karussell {
-    width: 50%; 
-    padding: 12px 20px;
-    font-size: 18px;
-    margin: 20px 0;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
+    cursor: pointer;
     background-color: #f8f8f8; /* Ursprüngliche Hintergrundfarbe */
-    cursor: pointer; /* Ändert den Mauszeiger zu einem Händchen, wenn der Benutzer über den Button fährt */
     transition: background-color 0.3s, transform 0.3s ease; /* Sanfter Übergang für Farbe und Transformation */
 }
 
@@ -54,7 +50,6 @@ body {
     transform: scale(1.05); /* Vergrößert den Button leicht beim Hover */
     box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Fügt einen Schatten für mehr Tiefe hinzu */
 }
-
 
 #anzeige {
     display: flex;
@@ -90,20 +85,83 @@ div.song:hover {
     transform: scale(1.05); /* Vergrößert die Box leicht beim Hover */
 }
 
-
-    
-
 h2 {
-    font-size: 24px;
+    font-size: 28px; /* Größerer Titel */
     font-weight: 700;
     color: #333;
     margin-bottom: 10px;
 }
 
 p {
-    font-size: 18px;
+    font-size: 20px; /* Größerer Text */
     font-weight: 300;
     color: #666;
+}
+
+/* Tooltip-Stile */
+.team-member {
+    position: relative;
+}
+
+.team-member:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px; /* Platzierung des Tooltips über dem Teammitglied */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    z-index: 1;
+}
+
+/* Footer Bereich */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: transparent; /* Kein Hintergrund */
+    margin-top: 150px; /* Mehr Abstand zum restlichen Inhalt */
+}
+
+footer h2 {
+    font-size: 40px; /* Größerer Titel "La Familia" */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Mehr Abstand zwischen den Teammitgliedern */
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Größere Bilder */
+    padding: 10px;
+    text-align: center;
+    background: transparent; /* Hintergrundfarbe entfernen */
+}
+
+.team-member img {
+    width: 170px; /* Größere Bilder */
+    height: 170px; /* Größere Bilder */
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 26px; /* Größere Namen */
+    font-weight: 500;
+    color: #333;
 }
 
 /* Responsive Design Anpassungen */
@@ -114,8 +172,10 @@ p {
     div.song {
         width: 200px; /* Kleinere Songboxen auf kleinen Bildschirmen */
     }
+    .team {
+        flex-direction: column;
+    }
 }
-
 
 @media (max-width: 768px) { /* Für kleinere Tablets und große Telefone */
     div.song {
@@ -164,4 +224,3 @@ div.song {
         padding: 20px; /* Padding um den Container */
     }
 }
-
